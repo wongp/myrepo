@@ -14,9 +14,11 @@
     <!-- default jquery
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script> -->
-	<link href="/jquery-ui-1.10.3.custom.css" rel="stylesheet">
-	<script src="/jquery-1.9.1.js"></script>
-	<script src="/jquery-ui-1.10.3.custom.js"></script>
+	
+	<!-- care for path locations.. -->
+	<link href="css/oranges/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+	<script src="js/jquery-1.9.1.js"></script>
+	<script src="js/jquery-ui-1.10.3.custom.js"></script> 
 	  
     <!-- <link type="text/css" rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap-2.3.2.css"> -->
 	<!-- <link href="//examples.getbootstrap.com/bootstrap/css/bootstrap.css" rel="stylesheet"> --> 
@@ -25,7 +27,7 @@
     /* Large Desktop */
    	@media (min-width: 480px) {
    		body {
-			  padding-top: 80px;   			
+			/*  padding-top: 80px; */   			
    			 }
    		.linediv-l {
    			
@@ -87,34 +89,61 @@
    		width: 100%;
    		height: 6px;   
 	}
+	
+	 /* http://support.addthis.com/customer/portal/questions/1136093-share-buttons-in-center-position */      
+	 div.addthis_toolbox {
+	  width:180px;
+	  margin: 0 auto;
+	 }
+	 
+	 div.orderbtn {
+	 	width:45%;
+	 	margin:0 auto;
+	 	
+	 }
     
     </style>
+    
+    <!-- google analytics -->
+    <script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	
+	  ga('create', 'UA-43116211-1', 'herokuapp.com');
+	  ga('send', 'pageview');
+
+	</script>
+    
   </head>
   <body>
   	
   <!-- Mobile friendly nav bar!! -->
   
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      
+    <div class="navbar">
+      <div class="navbar-inner">
 	      <div class="container">
-	      	 
-	        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-	          <span class="icon-bar"></span>
-	          <span class="icon-bar"></span>
-	          <span class="icon-bar"></span>
-	        </button>
-	        <a class="navbar-brand" href="#">Little Orange Book</a>
+	      	 <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+	      	 	
+	        <!-- <button type="button btn-navbar" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse"> -->
+	          <span class="icon-bar"> </span>
+	          <span class="icon-bar"> </span>
+	          <span class="icon-bar"> </span>
+	          
+	        <!-- </button> -->
+	        </a>
+	        <a class="brand" href="#">Little Orange Book</a>
 	        <div class="nav-collapse collapse">
 	          <ul class="nav navbar-nav">
 	            <li class="active"><a href="index.html">Home</a></li>
 	            <li><a href="courses.html">SAT Courses</a></li>
 	            <li><a href="locationhours.html">Location and Hours</a></li>
-	            <li><a href="contacts.html">Contact</a></li>
-	            <li><a href="#logo">Logo?</a></li>
+	            <li><a href="contacts.html">Contacts</a></li>
 	          </ul>
 	        </div><!--/.nav-collapse -->
 	      </div>
-   
+   	 </div>
     </div>
   
   <!-- End nav bar -->	
@@ -170,41 +199,56 @@
 	        	 <!-- progresss bar -->
 		        <div class="span10 offset1" >
 		        	<div class="thermometer progress active">
-		        		<div class="bar bar-sucess" style="width: 1%;"> </div>
+		        		<div class="bar bar-success" style="width: 1%;"> </div>
 		        		<div class="bar bar-warning" style="width: 99%"> </div>
 		        	</div>
 		        </div>
 		        <!-- basic button -->
-		        <div class="span6 offset3 order">
+		        <div class="orderbtn order">
 		        	<button class="btn btn-success btn-large">Pre-order</button>
 		        </div>
+		        
+		        <!-- AddThis Button BEGIN -->
+		        
+					<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+						<a class="addthis_button_preferred_1"> </a> 
+						<a class="addthis_button_preferred_2"> </a>
+						<a class="addthis_button_compact"> </a>
+						<a class="addthis_counter addthis_bubble_style"> </a>
+					</div>
+					<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+					<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5204afab345adcf2"></script>
+				
+				<!-- AddThis Button END -->
+		   
 	        	<!-- basic social buttons -->
-	        	<div class="span8 offset2 social">
-	        		<button class="btn btn-twitter"><i class="icon-twitter"> </i> | Twitter</button>
-	        		<button class="btn btn-facebook"><i class="icon-facebook"> </i> | Facebook</button>
-	        	</div>
+	        	
 	        </div>
 	        
 	      </div>
+	      
+	    <!-- tab stuff -->  
 	    <h3>What we're offering</h3>
-		<div id="tabs">
-			<ul>
-				<li><a href="#tabs-1">Quality</a></li>
-				<li><a href="#tabs-2">Consistentcy</a></li>
-				<li><a href="#tabs-3">Price</a></li>
-				<li><a href="#tabs-4">Care</a></li>
+		<div id="tabbable">
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#tabs-1" data-toggle="tab">Quality</a></li>
+				<li><a href="#tabs-2" data-toggle="tab">Consistentcy</a></li>
+				<li><a href="#tabs-3" data-toggle="tab">Price</a></li>
+				<li><a href="#tabs-4" data-toggle="tab">Care</a></li>
 			</ul>
-			<div id="tabs-1">
-				<p>Highly trained teachers.</p>
-			</div>
-			<div id="tabs-2">
-				<p>No matter who teaches, the quality is the same.</p>
-			</div>
-			<div id="tabs-3">
-				<p>Affordable, while still comparable to top programs.</p>
-			</div>
-			<div id="tabs-4">
-				<p>Each student is personally taken care of.</p>
+			<div class="tab-content">
+				<div class="tab-pane active" id="tabs-1">
+					<p>Highly trained teachers.</p>
+				</div>
+				<div class="tab-pane" id="tabs-2">
+					<p>No matter who teaches, the quality is the same.</p>
+				</div>
+				<div class="tab-pane" id="tabs-3">
+					<p>Affordable, while still comparable to top programs.</p>
+				</div>
+				<div class="tab-pane" id="tabs-4">
+					<p>Each student is personally taken care of.</p>
+				</div>
 			</div>
 		</div>
 		<h3>Product</h3>
